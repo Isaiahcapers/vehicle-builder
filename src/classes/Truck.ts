@@ -22,7 +22,7 @@ class Truck extends Vehicle implements AbleToTow{
   // TODO: The properties should include vin, color, make, model, year, weight, top speed, wheels, and towing capacity
   // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[]), towingCapacity (number)
   constructor(
-    vin: string,
+  vin: string,
   color: string,
   make: string,
   model: string,
@@ -56,13 +56,28 @@ class Truck extends Vehicle implements AbleToTow{
 
   // TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: (Truck| Motorbike | Car)[]): void {
-    vehicle
+      vehicle.forEach(v => {
+        if (v instanceof Truck || v instanceof Car || v instanceof Motorbike) {
+          console.log(`Towing vehicle: ${v.make} ${v.model}`);
+        } else {
+          console.log('Unknown vehicle type');
+        }
+        if (v.weight <= this.towingCapacity ) {
+          console.log(`The vehicle ${v.make} ${v.model} is being towed`);        
+        } else {
+          console.log(`The vehicle ${v.make} ${v.model} is too heavy to be towed`);
+        }
+      });       
+    }
     // TODO: Get the make and model of the vehicle if it exists
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // TODO: If it is, log that the vehicle is being towed
     // TODO: If it is not, log that the vehicle is too heavy to be towed
+  
+  override printDetails(): void {
+      console.log(`Truck Details: ${this.vin} ${this.make} ${this.model} ${this.year} ${this.weight} ${this.topSpeed} ${this.color} ${this.towingCapacity} ${this.wheels} `);
+      
   }
-
   // TODO: Override the printDetails method from the Vehicle class
     // TODO: The method should call the printDetails method of the parent class
     // TODO: The method should log the details of the Truck
