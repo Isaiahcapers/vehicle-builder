@@ -257,6 +257,7 @@ class Cli {
         // TODO: set the selectedVehicleVin to the vin of the motorbike
         // TODO: perform actions on the motorbike
         const motorbike = new Motorbike (
+        answers.vin,
         answers.color,
         answers.make,
         answers.model,
@@ -269,7 +270,7 @@ class Cli {
         (answers.rearWheelBrand),
         []
         );
-        this.vehicles.push(Motorbike);
+        this.vehicles.push(motorbike);
         this.selectedVehicleVin = motorbike.vin;
         this.performActions();
   
@@ -278,7 +279,7 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
-  findVehicleToTow(truck): void {
+  findVehicleToTow(SelectedTruck: Truck): void {
     inquirer
       .prompt([
         {
@@ -389,16 +390,16 @@ class Cli {
           }
         } else if (answers.action === 'Tow') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i] === 'Truck') {
-              this.findVehicleToTow(Truck);
-              return
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
+              this.findVehicleToTow(this.vehicles[i]);
+              return;
             }
           }
         } 
         else if (answers.action === 'Wheelie') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i] === 'Motorbike') {
-              wheelie();
+            if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
+              this.vehicles[i].wheelie();
             }
           }
         }

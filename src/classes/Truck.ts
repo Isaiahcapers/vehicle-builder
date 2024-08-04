@@ -29,8 +29,9 @@ class Truck extends Vehicle implements AbleToTow{
   year: number,
   weight: number,
   topSpeed: number,
-  wheels: Wheel[],
   towingCapacity: number,
+  wheels: Wheel[],
+  
   ) {
 
     super();
@@ -40,6 +41,7 @@ class Truck extends Vehicle implements AbleToTow{
     this.model = model;
     this.year = year;
     this.weight = weight;
+    this.wheels = wheels;
     this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
     if (wheels.length !== 4) {
@@ -47,7 +49,6 @@ class Truck extends Vehicle implements AbleToTow{
     } else {
       this.wheels = wheels;
     }
-
   }
   // TODO: Create a constructor that accepts the properties of the Truck class
     // TODO: The constructor should call the constructor of the parent class, Vehicle

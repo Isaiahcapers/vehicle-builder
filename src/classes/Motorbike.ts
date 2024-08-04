@@ -1,7 +1,7 @@
 // Importing Vehicle and Wheel classes
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
-
+import Wheelie from '../interfaces/Wheelie.js';
 // TODO: The Motorbike class should extend the Vehicle class
 class Motorbike extends Vehicle implements Wheelie {
   // TODO: Declare properties of the Motorbike class
@@ -14,10 +14,44 @@ class Motorbike extends Vehicle implements Wheelie {
   year: number;
   weight: number;
   topSpeed: number;
+  frontWheelDiameter:number;
+  frontWheelBrand:string;
+  rearWheelDiameter:number;
+  rearWheelBrand:string;
   wheels: Wheel[];
   constructor (
-    
-  )
+    vin: string,
+    color: string,
+    make: string,
+    model: string,
+    year: number,
+    weight: number,
+    topSpeed: number,
+    frontWheelDiameter:number,
+    frontWheelBrand:string,
+    rearWheelDiameter:number,
+    rearWheelBrand:string,
+    wheels: Wheel[],
+  ) {
+    super ()
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
+    this.frontWheelDiameter = frontWheelDiameter;
+    this.frontWheelBrand =frontWheelBrand;
+    this.rearWheelDiameter= rearWheelDiameter;
+    this.rearWheelBrand =rearWheelBrand;
+    if (wheels.length !== 2) {
+      this.wheels = [new Wheel(), new Wheel()];
+    } else {
+      this.wheels = wheels;
+    }
+
+  }
   // TODO: Create a constructor that accepts the properties of the Motorbike class
     // TODO: The constructor should call the constructor of the parent class, Vehicle
     // TODO: The constructor should initialize the properties of the Motorbike class
@@ -25,7 +59,10 @@ class Motorbike extends Vehicle implements Wheelie {
 
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-
+override printDetails(): void {
+    console.log(`Motorbike Details: ${this.vin} ${this.make} ${this.model} ${this.year} ${this.weight} ${this.topSpeed} ${this.color} } ${this.wheels} `);
+    
+}
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class
   // TODO: The method should log the details of the Motorbike
