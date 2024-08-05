@@ -2,6 +2,7 @@
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 import Wheelie from '../interfaces/Wheelie.js';
+import { log } from 'console';
 // TODO: The Motorbike class should extend the Vehicle class
 class Motorbike extends Vehicle implements Wheelie {
   // TODO: Declare properties of the Motorbike class
@@ -50,7 +51,10 @@ class Motorbike extends Vehicle implements Wheelie {
     } else {
       this.wheels = wheels;
     }
-
+  }
+  wheelie(): void {
+      console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
+      
   }
   // TODO: Create a constructor that accepts the properties of the Motorbike class
     // TODO: The constructor should call the constructor of the parent class, Vehicle
@@ -67,6 +71,7 @@ override printDetails(): void {
   // TODO: The method should call the printDetails method of the parent class
   // TODO: The method should log the details of the Motorbike
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
+  
 }
 
 // Export the Motorbike class as the default export

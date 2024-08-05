@@ -56,20 +56,14 @@ class Truck extends Vehicle implements AbleToTow{
     // TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
 
   // TODO: Implement the tow method from the AbleToTow interface
-  tow(vehicle: (Truck| Motorbike | Car)[]): void {
-      vehicle.forEach(v => {
-        if (v instanceof Truck || v instanceof Car || v instanceof Motorbike) {
-          console.log(`Towing vehicle: ${v.make} ${v.model}`);
-        } else {
-          console.log('Unknown vehicle type');
-        }
-        if (v.weight <= this.towingCapacity ) {
-          console.log(`The vehicle ${v.make} ${v.model} is being towed`);        
-        } else {
-          console.log(`The vehicle ${v.make} ${v.model} is too heavy to be towed`);
-        }
-      });       
+  tow (vehicle: Motorbike | Car): void {
+    if (vehicle.weight <= this.towingCapacity) {
+      console.log(`Truck ${this.make} ${this.model} is towing ${vehicle.make} ${vehicle.model}`);
+    } else {
+      console.log(`${vehicle.make} ${vehicle.model} is too heavy to tow`);
     }
+  }
+  
     // TODO: Get the make and model of the vehicle if it exists
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // TODO: If it is, log that the vehicle is being towed
