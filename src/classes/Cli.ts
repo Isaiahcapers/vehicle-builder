@@ -401,7 +401,7 @@ class Cli {
             if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Truck) {
               const truck: Truck = this.vehicles[i] as Truck;
               this.findVehicleToTow(truck);
-              return;
+              // return;
             }
           }
         } 
@@ -411,7 +411,7 @@ class Cli {
             if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
               const motorbike: Motorbike = this.vehicles[i] as Motorbike;
               motorbike.wheelie();
-              return;
+              // return;
             }
           }
         }
