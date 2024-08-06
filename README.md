@@ -1,7 +1,3 @@
-Certainly! Here's a professional README for your Vehicle Builder application, tailored to the provided criteria:
-
----
-
 # Vehicle Builder
 
 ## Description
