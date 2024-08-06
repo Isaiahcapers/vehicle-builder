@@ -54,7 +54,6 @@ class Motorbike extends Vehicle implements Wheelie {
   }
   wheelie(): void {
       console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
-      
   }
   // TODO: Create a constructor that accepts the properties of the Motorbike class
     // TODO: The constructor should call the constructor of the parent class, Vehicle
